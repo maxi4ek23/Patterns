@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Company</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container my-2">
+    <h1>Company List</h1>
+
+    <a th:href="@{/showNewCompanyForm}" class="btn btn-primary btn-sm mb-3">Add Company</a>
+
+    <div class="company-columns">
+        <div th:each="e : ${company}" class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${e.name}"></h5>
+                <p class="card-text" th:text="${e.location}"></p>
+                <a th:href="@{/showUpdateCompanyForm/{id}(id=${e.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteCompany/{id}(id=${e.id})}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

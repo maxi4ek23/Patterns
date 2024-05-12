@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 import yaml, json
 from kafka import KafkaProducer
-from constants import *
 from data_utils import get_user_data_as_dict
-
+from constants import *
 
 
 class OutputDataStrategy(ABC):
